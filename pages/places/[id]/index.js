@@ -34,14 +34,11 @@ export default function DetailsPage() {
   const { isReady } = router;
   const { id } = router.query;
 
-  const { data: place, isLoading, error } = useSWR(`/api/places/${id}`);
-
-  // const { trigger, isMutating } = useSWRMutation(
-  //   `/api/places/${id}`,
-  //   updatePlace
-  // );
-
-  // if (!isReady || isLoading || error || isMutating) return <h2>Loading...</h2>;
+  const {
+    data: place,
+    isLoading,
+    error,
+  } = useSWR(id ? `/api/places/${id}` : null);
 
   async function deletePlace() {
     const response = await fetch(`/api/places/${id}`, {
@@ -58,8 +55,6 @@ export default function DetailsPage() {
   if (!isReady || isLoading || error) {
     return <h1>Loading...</h1>;
   }
-
-  console.log("deleted?");
 
   return (
     <>

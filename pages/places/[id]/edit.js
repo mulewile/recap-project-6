@@ -19,7 +19,7 @@ export default function EditPage() {
       },
       body: JSON.stringify(place),
     });
-    router.push("/");
+    router.push(`/places/${id}`);
     if (!response.ok) {
       console.error(`Error: ${response.status}`);
     }
@@ -40,5 +40,5 @@ export default function EditPage() {
   );
 }
 
-/*I would like go to the details page after updating, how to I refactor this => router.push("/");
+/*I would like go to the details page after updating, how do I refactor this => router.push("/");
 What is happening here => id ? `/api/places/${id}` : null*/

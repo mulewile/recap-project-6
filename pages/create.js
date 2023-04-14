@@ -21,7 +21,7 @@ export default function CreatePlacePage() {
       },
     });
 
-    /*come funziona?*/ router.push("/");
+    router.push("/");
 
     if (!response.ok) {
       console.log(`Error: ${response.status}`);
